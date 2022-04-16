@@ -1,0 +1,36 @@
+.bg-color {
+  background-color: #49494936;
+  padding: 10 15px;
+  border-radius: 15px 5px 15px 5px;
+  position: sticky;
+  top: 0;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-container {
+  width: 40px;
+  border-radius: 20px;
+}
+.iteams {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 20px;
+  color: whitesmoke;
+}
+.loginOption {
+  padding: 5px 15px;
+  background-color: rgb(6, 6, 26);
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.loginOption:hover {
+  color: black;
+  background-color: rgb(99, 76, 38);
+  transition: 0.6s;
+}
