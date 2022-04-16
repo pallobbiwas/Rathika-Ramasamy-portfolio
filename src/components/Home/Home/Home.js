@@ -1,10 +1,13 @@
 import React from "react";
 import cover from "../../images/banner/Rathika-Ramasamy-Images-1.jpg";
+import Banner from "../Banner/Banner";
+import Services from "../Services/Services";
 import "./Home.css";
 
 const Home = () => {
   return (
     <div className="container-fluid mt-5">
+        <Banner />
       <div className="row d-flex align-items-center">
         <div className="col-md-6">
           <h1 className="idol-title">Rathika Ramasamy</h1>
@@ -26,6 +29,7 @@ const Home = () => {
           <img className="img-fluid rounded-3" src={cover} alt="" />
         </div>
       </div>
+      <Services />
     </div>
   );
 };
