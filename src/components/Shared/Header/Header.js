@@ -8,7 +8,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <div>
-      <nav className="container">
+      <nav className="container mb-4">
         <Navbar
           collapseOnSelect
           expand="lg"

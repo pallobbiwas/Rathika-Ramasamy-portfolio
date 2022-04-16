@@ -1,0 +1,13 @@
+.idol-title {
+  letter-spacing: 0.4ch;
+}
+.hire-btn {
+  padding: 6px 85px;
+  border-radius: 10px;
+  font-size: 22px;
+  margin: 0 0 4px 0;
+}
+.hire-btn:hover {
+  background-color: orange;
+  transition: 0.6s;
+}
