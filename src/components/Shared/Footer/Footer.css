@@ -8,3 +8,8 @@ a {
   text-decoration: none;
   color: wheat;
 }
+.img-size {
+  width: 30px;
+  border-radius: 15px;
+  margin: 10px 10px;
+}

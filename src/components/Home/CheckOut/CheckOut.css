@@ -5,3 +5,11 @@
 .custom-padding {
   margin: 70px 0 70px 0;
 }
+.cheout {
+  width: 50%;
+}
+@media screen and (max-width: 992px) {
+  .cheout {
+    width: 100%;
+  }
+}

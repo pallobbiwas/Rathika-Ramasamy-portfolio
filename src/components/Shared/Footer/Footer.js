@@ -1,6 +1,7 @@
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import facebook from '../../images/logo/fac.jpg';
+import instagram from '../../images/logo/insta.jpg';
+import linkdin from '../../images/logo/linkdin.jpg';
 import "./Footer.css";
 
 const Footer = () => {
@@ -9,13 +10,13 @@ const Footer = () => {
       <div className="container text-center py-3">
         <div>
           <a href="#facebook">
-            <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
+            <img className="img-size" src={facebook} alt="" />
           </a>
           <a href="#linkdin">
-            <FontAwesomeIcon className="mx-3" icon={faCoffee}></FontAwesomeIcon>
+            <img className="img-size" src={linkdin} alt="" />
           </a>
           <a href="#twiter">
-            <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
+            <img className="img-size" src={instagram} alt="" />
           </a>
         </div>
         <p>

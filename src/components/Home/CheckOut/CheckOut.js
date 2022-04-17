@@ -20,7 +20,7 @@ const CheckOut = () => {
     >
       <h1 className="text-center">Welcome to Checkout</h1>
       <hr />
-      <div className="w-50 mx-auto">
+      <div className="cheout mx-auto">
         <Form onSubmit={fromSubmit} className="custom-padding">
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control type="email" placeholder="Enter email" required />
