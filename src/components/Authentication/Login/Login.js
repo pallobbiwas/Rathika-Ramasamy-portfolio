@@ -3,12 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
-    useSendPasswordResetEmail,
-    useSignInWithEmailAndPassword,
-    useSignInWithGithub,
-    useSignInWithGoogle
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+  useSignInWithGithub,
+  useSignInWithGoogle
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import auth from "../../../firebase.init";
 import githubicon from "../../images/logo/github.png";
 import googleicon from "../../images/logo/google.png";
@@ -48,7 +50,7 @@ const Login = () => {
   const forgetpass = async () => {
     const email = emailRef.current.value;
     await sendPasswordResetEmail(email);
-    alert("Sent email");
+    toast("Sent email");
   };
 
   if (emailUser || googelUser || gituser) {
@@ -74,7 +76,7 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Control
                 ref={passRef}
-                type={show ? "password" : "text"}
+                type={!show ? "password" : "text"}
                 placeholder="Password"
                 required
               />
@@ -132,6 +134,7 @@ const Login = () => {
               />
               Login github
             </button>
+            <ToastContainer />
           </div>
         </div>
       </div>
