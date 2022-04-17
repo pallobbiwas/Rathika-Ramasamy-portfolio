@@ -22,13 +22,17 @@ const Ragister = () => {
   const emailRef = useRef("");
   const nameRef = useRef("");
   const passRef = useRef("");
+  const repassRef = useRef("");
+
   const navigate = useNavigate();
   //click handeler
+  const pass = passRef.current.value;
+  const rePass = repassRef.current.value;
   const fromSubmit = async (e) => {
     e.preventDefault();
     const email = emailRef.current.value;
     const name = nameRef.current.value;
-    const pass = passRef.current.value;
+
     await createUserWithEmailAndPassword(email, pass);
     await sendEmailVerification();
     alert("Sent email");
@@ -36,6 +40,12 @@ const Ragister = () => {
     alert("Updated profile");
     navigate("/home");
   };
+  if(pass !== rePass){
+    errorElement = <p className="text-danger">password didn't match</p>;
+  }
+  if(pass === rePass){
+    errorElement = '';
+  }
   if (emailError) {
     errorElement = <p>Error: {emailError.message}</p>;
   }
@@ -74,6 +84,15 @@ const Ragister = () => {
                 ref={passRef}
                 type="Password"
                 placeholder="Password"
+                required
+              />
+            </Form.Group>
+            
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Control
+                ref={repassRef}
+                type="Password"
+                placeholder="re-type Password"
                 required
               />
             </Form.Group>
