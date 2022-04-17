@@ -7,8 +7,13 @@ import "./Home.css";
 const Home = () => {
   return (
     <div className="container-fluid mt-5">
-        <Banner />
-      <div className="row d-flex align-items-center">
+      <Banner />
+      <div
+        data-aos="zoom-in-up"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
+        className="row d-flex align-items-center"
+      >
         <div className="col-md-6">
           <h1 className="idol-title">Rathika Ramasamy</h1>
           <hr />

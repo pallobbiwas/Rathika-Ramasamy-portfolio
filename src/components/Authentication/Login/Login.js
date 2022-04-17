@@ -60,7 +60,12 @@ const Login = () => {
     errorElemet = <p>{emailError?.message}</p>;
   }
   return (
-    <div className="container">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="container"
+    >
       <div className=" mx-auto login-box">
         <Form onSubmit={emailLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

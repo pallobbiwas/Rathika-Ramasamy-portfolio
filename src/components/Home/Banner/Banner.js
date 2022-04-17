@@ -6,7 +6,12 @@ import imge3 from "../../images/banner/banner3.png";
 
 const Banner = () => {
   return (
-    <div className="mb-5">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="mb-5"
+    >
       <div className="row d-flex align-items-center">
         <div className="col-md-8">
           <Carousel>
@@ -24,7 +29,13 @@ const Banner = () => {
         <div className="col-md-4">
           <h2>About photography</h2>
           <hr />
-          <p>We create beautiful memories for this unique and special moment. We print your photos in high quality Canvas and Glass Wall Art. Fine Art Photography. Studio Photography. Family Portrait. Maternity Photography. Styles: Maternity Photography, Fine Art Photography, Fifteen Years Photography.</p>
+          <p>
+            We create beautiful memories for this unique and special moment. We
+            print your photos in high quality Canvas and Glass Wall Art. Fine
+            Art Photography. Studio Photography. Family Portrait. Maternity
+            Photography. Styles: Maternity Photography, Fine Art Photography,
+            Fifteen Years Photography.
+          </p>
         </div>
       </div>
     </div>

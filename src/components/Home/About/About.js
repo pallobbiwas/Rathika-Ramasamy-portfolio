@@ -5,7 +5,12 @@ import "./About.css";
 
 const About = () => {
   return (
-    <div className="container main-conten">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="container main-conten"
+    >
       <div className="my-3">
         <h1>About my self</h1>
         <hr />
@@ -61,7 +66,10 @@ const About = () => {
       <div>
         <h4>My dream</h4>
         <hr />
-        <p>Became a job holder.Grow up my skill for real life projcet.then starting a small bisuness.</p>
+        <p>
+          Became a job holder.Grow up my skill for real life projcet.then
+          starting a small bisuness.
+        </p>
       </div>
       <div className="my-3">
         <h1 className="text-center">THANK YOU</h1>

@@ -1,4 +1,7 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Authentication/Login/Login";
@@ -13,6 +16,9 @@ import Footer from "./components/Shared/Footer/Footer";
 import Header from "./components/Shared/Header/Header";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="App">
       <Header />

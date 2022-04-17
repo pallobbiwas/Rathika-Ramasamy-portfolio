@@ -12,7 +12,12 @@ const Servic = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className="col-md-4">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="col-md-4"
+    >
       <div className="box w-100">
         <h3 className="bg-warning px-5 py-3 rounded-3">Price: {price}$</h3>
         <div className="ps-4">

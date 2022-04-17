@@ -12,7 +12,12 @@ const CheckOut = () => {
     navigate("/home");
   };
   return (
-    <div className="container mb-5">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="container mb-5"
+    >
       <h1 className="text-center">Welcome to Checkout</h1>
       <hr />
       <div className="w-50 mx-auto">

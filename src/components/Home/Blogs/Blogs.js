@@ -3,7 +3,12 @@ import "./Blogs.css";
 
 const Blogs = () => {
   return (
-    <div className="text-center container my-5">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="text-center container my-5"
+    >
       <h1>Blogs</h1>
       <hr />
       <div className="row my-5">

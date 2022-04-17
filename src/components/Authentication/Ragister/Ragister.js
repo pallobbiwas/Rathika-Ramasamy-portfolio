@@ -2,11 +2,12 @@ import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useCreateUserWithEmailAndPassword,
-  useSendEmailVerification, useUpdateProfile
+  useSendEmailVerification,
+  useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
-import './Ragister.css';
+import "./Ragister.css";
 
 const Ragister = () => {
   let errorElement;
@@ -16,7 +17,7 @@ const Ragister = () => {
   const [sendEmailVerification, sending, error] =
     useSendEmailVerification(auth);
   const [updateProfile] = useUpdateProfile(auth);
-  const [agree, setAgree] = useState(false)
+  const [agree, setAgree] = useState(false);
   //reference for input data
   const emailRef = useRef("");
   const nameRef = useRef("");
@@ -31,7 +32,7 @@ const Ragister = () => {
     await createUserWithEmailAndPassword(email, pass);
     await sendEmailVerification();
     alert("Sent email");
-    await updateProfile({ displayName:name });
+    await updateProfile({ displayName: name });
     alert("Updated profile");
     navigate("/home");
   };
@@ -39,7 +40,12 @@ const Ragister = () => {
     errorElement = <p>Error: {emailError.message}</p>;
   }
   return (
-    <div className="container my-5">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="container my-5"
+    >
       <h1 className="text-center">Ragister here</h1>
       <hr />
       <>
@@ -72,8 +78,18 @@ const Ragister = () => {
               />
             </Form.Group>
             <div className="d-flex align-items-center">
-                <input onClick={()=>setAgree(!agree)} type="checkbox" name="" id="" />
-                <label className={agree? "text-info ms-2": "text-danger ms-2"} htmlFor="checkbox">accept tarms & condition</label>
+              <input
+                onClick={() => setAgree(!agree)}
+                type="checkbox"
+                name=""
+                id=""
+              />
+              <label
+                className={agree ? "text-info ms-2" : "text-danger ms-2"}
+                htmlFor="checkbox"
+              >
+                accept tarms & condition
+              </label>
             </div>
             <div className="text-end">
               <p>

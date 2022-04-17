@@ -38,6 +38,9 @@ const Header = () => {
                 <ActiveLink className="iteams" to="/about">
                   About me
                 </ActiveLink>
+                <ActiveLink className="iteams" to="/ragister">
+                  Ragister
+                </ActiveLink>
               </Nav>
               <Nav>
                 {
