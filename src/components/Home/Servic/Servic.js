@@ -1,6 +1,7 @@
 import { faCheck, faTicket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Servic = ({
   service: {
@@ -9,6 +10,7 @@ const Servic = ({
     price,
   },
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="col-md-4">
       <div className="box w-100">
@@ -29,7 +31,13 @@ const Servic = ({
           </p>
         </div>
         <div>
-            <button className="btn btn-warning w-100 rounded-3">Book now <FontAwesomeIcon className="ms-3" icon={faTicket}></FontAwesomeIcon></button>
+          <button
+            onClick={() => navigate("/checkout")}
+            className="btn btn-warning w-100 rounded-3"
+          >
+            Book now{" "}
+            <FontAwesomeIcon className="ms-3" icon={faTicket}></FontAwesomeIcon>
+          </button>
         </div>
       </div>
     </div>
