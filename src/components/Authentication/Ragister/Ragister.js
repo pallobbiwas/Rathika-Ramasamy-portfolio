@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
     useCreateUserWithEmailAndPassword,
@@ -15,6 +15,7 @@ const Ragister = () => {
   const [sendEmailVerification, sending, error] =
     useSendEmailVerification(auth);
   const [updateProfile] = useUpdateProfile(auth);
+  const [agree, setAgree] = useState(false)
   //reference for input data
   const emailRef = useRef("");
   const nameRef = useRef("");
@@ -69,6 +70,10 @@ const Ragister = () => {
                 required
               />
             </Form.Group>
+            <div className="d-flex align-items-center">
+                <input onClick={()=>setAgree(!agree)} type="checkbox" name="" id="" />
+                <label className={agree? "text-info ms-2": "text-danger ms-2"} htmlFor="checkbox">accept tarms & condition</label>
+            </div>
             <div className="text-end">
               <p>
                 Allready have an account.{" "}
@@ -76,7 +81,7 @@ const Ragister = () => {
               </p>
             </div>
             {errorElement}
-            <Button variant="primary" type="submit">
+            <Button disabled={!agree} variant="primary" type="submit">
               Submit
             </Button>
           </Form>

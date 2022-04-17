@@ -32,3 +32,13 @@ span {
   color: blue;
   cursor: pointer;
 }
+.parend {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 10px;
+  color: black;
+  right: 10px;
+  cursor: pointer;
+}

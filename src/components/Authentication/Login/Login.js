@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
@@ -8,33 +10,47 @@ import googleicon from "../../images/logo/google.png";
 import "./Login.css";
 
 const Login = () => {
-    const emailRef = useRef('');
-    const passRef = useRef('')
+  const emailRef = useRef("");
+  const passRef = useRef("");
+  const[show, setSow] = useState(false)
   // react firebase hook
   const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
   // loging handeler
-const emailLogin = (e) => {
-    e.preventDefault()
+  const emailLogin = (e) => {
+    e.preventDefault();
     const email = emailRef.current.value;
     const pass = passRef.current.value;
-    signInWithEmailAndPassword(email, pass)
-}
-if(emailUser){
-    navigate('/home')
-}
+    signInWithEmailAndPassword(email, pass);
+  };
+  if (emailUser) {
+    navigate("/home");
+  }
   return (
     <div className="container">
       <div className="w-50 mx-auto login-box">
         <Form onSubmit={emailLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Control ref={emailRef} type="email" placeholder="Enter email" required />
+            <Form.Control
+              ref={emailRef}
+              type="email"
+              placeholder="Enter email"
+              required
+            />
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Control ref={passRef} type="password" placeholder="Password" required />
-          </Form.Group>
+          <div className="parend">
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Control
+                ref={passRef}
+                type={show? "password" : "text"}
+                placeholder="Password"
+                required
+              />
+              <FontAwesomeIcon onClick={()=>setSow(!show)} className="child" icon={faEye}></FontAwesomeIcon>
+            </Form.Group>
+          </div>
           <div className="text-center">
             <Button className="w-50 " variant="primary" type="submit">
               Login
