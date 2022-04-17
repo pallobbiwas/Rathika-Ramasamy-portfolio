@@ -2,7 +2,12 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+    useSendPasswordResetEmail,
+    useSignInWithEmailAndPassword,
+    useSignInWithGithub,
+    useSignInWithGoogle
+} from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import githubicon from "../../images/logo/github.png";
@@ -10,12 +15,21 @@ import googleicon from "../../images/logo/google.png";
 import "./Login.css";
 
 const Login = () => {
+  let errorElemet;
   const emailRef = useRef("");
   const passRef = useRef("");
-  const[show, setSow] = useState(false)
+  const [show, setSow] = useState(false);
   // react firebase hook
   const [signInWithEmailAndPassword, emailUser, emailLoading, emailError] =
     useSignInWithEmailAndPassword(auth);
+
+  const [signInWithGoogle, googelUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+
+  const [signInWithGithub, gituser, gitloading, giterror] =
+    useSignInWithGithub(auth);
+
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
   // loging handeler
   const emailLogin = (e) => {
@@ -24,8 +38,24 @@ const Login = () => {
     const pass = passRef.current.value;
     signInWithEmailAndPassword(email, pass);
   };
-  if (emailUser) {
+  //google log in
+  const googleLogin = () => {
+    signInWithGoogle();
+  };
+  const gitLogin = () => {
+    signInWithGithub();
+  };
+  const forgetpass = async () => {
+    const email = emailRef.current.value;
+    await sendPasswordResetEmail(email);
+    alert("Sent email");
+  };
+
+  if (emailUser || googelUser || gituser) {
     navigate("/home");
+  }
+  if (emailError || googleError || giterror) {
+    errorElemet = <p>{emailError?.message}</p>;
   }
   return (
     <div className="container">
@@ -44,13 +74,18 @@ const Login = () => {
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Control
                 ref={passRef}
-                type={show? "password" : "text"}
+                type={show ? "password" : "text"}
                 placeholder="Password"
                 required
               />
-              <FontAwesomeIcon onClick={()=>setSow(!show)} className="child" icon={faEye}></FontAwesomeIcon>
+              <FontAwesomeIcon
+                onClick={() => setSow(!show)}
+                className="child"
+                icon={faEye}
+              ></FontAwesomeIcon>
             </Form.Group>
           </div>
+          {errorElemet}
           <div className="text-center">
             <Button className="w-50 " variant="primary" type="submit">
               Login
@@ -60,7 +95,7 @@ const Login = () => {
         <div className="row my-4">
           <div className="col-md-6">
             <p>
-              forget password? <span>reset password</span>
+              forget password? <span onClick={forgetpass}>reset password</span>
             </p>
           </div>
           <div className="col-md-6">
@@ -77,7 +112,7 @@ const Login = () => {
         </div>
         <div className="social-login row">
           <div className="col-md-6">
-            <button>
+            <button onClick={googleLogin}>
               <img
                 style={{ width: "30px" }}
                 className=" img-fluid"
@@ -88,7 +123,7 @@ const Login = () => {
             </button>
           </div>
           <div className="col-md-6">
-            <button>
+            <button onClick={gitLogin}>
               <img
                 style={{ width: "30px" }}
                 className=" img-fluid"
