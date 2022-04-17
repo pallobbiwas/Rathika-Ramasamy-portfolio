@@ -61,7 +61,7 @@ const Login = () => {
   }
   return (
     <div className="container">
-      <div className="w-50 mx-auto login-box">
+      <div className=" mx-auto login-box">
         <Form onSubmit={emailLogin}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Control

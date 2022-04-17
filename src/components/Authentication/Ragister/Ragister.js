@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
-    useCreateUserWithEmailAndPassword,
-    useSendEmailVerification, useUpdateProfile
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification, useUpdateProfile
 } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import './Ragister.css';
 
 const Ragister = () => {
   let errorElement;
@@ -42,7 +43,7 @@ const Ragister = () => {
       <h1 className="text-center">Ragister here</h1>
       <hr />
       <>
-        <div className="w-50 mx-auto">
+        <div className="rg-width mx-auto">
           <Form onSubmit={fromSubmit} className="custom-padding">
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Control
