@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1001,
+    "name": "Raguler package",
+    "img": "",
+    "offer": [
+      "All time free service",
+      "High quality rajulation",
+      "No backup file",
+      "No hard copy"
+    ],
+    "price": 2500
+  },
+  {
+    "id": 1002,
+    "name": "Premium package",
+    "img": "",
+    "offer": [
+      "All time free service",
+      "High quality rajulation",
+      "1 year backup file",
+      "Given hard copy"
+    ],
+    "price": 5000
+  },
+  {
+    "id": 1003,
+    "name": "Master package",
+    "img": "",
+    "offer": [
+      "All time free service",
+      "High quality rajulation",
+      "5 year backup file",
+      "All time ard copy"
+    ],
+    "price": 7500
+  }
+]
